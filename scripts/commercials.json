@@ -1,0 +1,46 @@
+
+[
+  {
+    "name": "Bicicleta",
+    "sell": true,
+    "price": 230.15,
+    "photo": "/images/anuncios/bici.png",
+    "tags": ["lifestyle", "motor"]
+  },
+  {
+    "name": "iPhone6",
+    "sell": false,
+    "price": 50.00,
+    "photo": "/images/anuncios/iphone.jpg",
+    "tags": ["lifestyle", "mobile"]
+  },
+  {
+    "name": "Moto",
+    "sell": false,
+    "price": 525.75,
+    "photo": "/images/anuncios/moto.jpeg",
+    "tags": ["lifestyle", "motor"]
+  },
+  {
+    "name": "Samsung Galaxy",
+    "sell": true,
+    "price": 30.00,
+    "photo": "/images/anuncios/galaxy.png",
+    "tags": ["lifestyle", "mobile"]
+  },
+  {
+    "name": "Book",
+    "sell": false,
+    "price": 10.65,
+    "photo": "/images/anuncios/book.jpeg",
+    "tags": ["entertaiment", "reading"]
+  },
+  {
+    "name": "xBox",
+    "sell": false,
+    "price": 100.75,
+    "photo": "/images/anuncios/xbox.jpeg",
+    "tags": ["entertaiment", "play"]
+  }
+]
+

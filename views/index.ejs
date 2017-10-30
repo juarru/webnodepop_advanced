@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <ul>
+        <% commercial.forEach(function(commercial) { %>
+        <div class="item">
+          <li><%= commercial.name %></li>
+          <li><%= commercial.sell %></li>
+          <li><%= commercial.price %></li>
+          <li><%= commercial.tags %></li>
+          <img class="images" src="<%= commercial.photo %>" alt="Foto">
+          <br/>
+        </div>
+        <% }); %>
+    </ul>
+  </body>
+</html>
