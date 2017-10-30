@@ -1,4 +1,4 @@
-## WebNodepop by Juan Arillo
+## WebNodepop_advanced by Juan Arillo
 
   API service for IOs and Android of second hands article´s selling.  
   Final [node](http://nodejs.org) module practise, using also [express](https://github.com/expressjs/express) framework and [mongoDB](https://www.mongodb.com/) database.
@@ -6,7 +6,7 @@
 
 ## Previous Requirement
 
-For using Nodepop you first need to install the next resources:
+For using WebNodepop you first need to install the next resources:
 
 - [node](http://nodejs.org): You can download an installation file for Window or Mac, or through a package manager like [brew](http://brew.sh/) using console.
 - [mongoDB](https://www.mongodb.com/): Nodepop use mongoDB as database. You can download the project from [mongo´s webpage](https://www.mongodb.com/).
