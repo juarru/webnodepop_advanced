@@ -14,7 +14,7 @@ function install(){
     let client = require('mongodb').MongoClient;
 
     // Connecting to Database
-    client.connect('mongodb://localhost:27017/nodepop', function(err, db){
+    client.connect('mongodb://localhost:27017/webnodepop', function(err, db){
 
         if (err) throw err;
         console.log('Connected to Database');

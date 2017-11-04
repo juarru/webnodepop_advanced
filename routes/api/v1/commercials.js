@@ -13,6 +13,7 @@
 
 let express = require('express');
 let router = express.Router();
+var jwtCheck = require('../../../lib/jwtCheck');
 
 // Loading Mongoose and Commercial´s model
 
@@ -95,7 +96,12 @@ router.get('/', function (req, res, next) {
     Commercial.list(criteria, start, limit, sort, field, total, function(err, rows){
         if(err){
             // Returning understable error
-            return res.json({success:false, error: err});
+            let error = new Error();
+            error.message = 'auth';
+            error.language = req.lang;
+            error.status = 500;
+            errors(error, res);
+            return res.json({success:false, error: errors});
         }
         res.json({success: true, rows: rows});
 

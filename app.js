@@ -7,7 +7,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var i18n = require('i18n');
-var jwt = require('jsonwebtoken');
+const jwtCheck = require('./lib/jwtCheck');
 
 //var routes = require('./routes/index');
 //var users = require('./routes/users');
@@ -59,16 +59,14 @@ app.use((req, res, next) => {
 //app.use('/', routes);
 //app.use('/users', users);
 
-// losgin controller
-const loginController = require('./routes/api/v1/loginController');
-app.post('/api/v1/login', loginController.post);
-
 // Index route
 app.use('/', require('./routes/index'));
 
 // Loading API routes
-app.use('/users', require('./routes/users'));
-app.use('/api/v1/commercials', require('./routes/api/v1/commercials'));
+//app.use('/users', require('./routes/users'));
+app.use('/api/v1/authenticate', require('./routes/api/v1/authenticate'));
+app.use('/api/v1/commercials', jwtCheck(), require('./routes/api/v1/commercials'));
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
