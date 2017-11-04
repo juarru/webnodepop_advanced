@@ -5,7 +5,15 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
+    <header>
+      <ul class="lang-switch">
+        <% getLocales().forEach( lang => { %>
+        <a href="/lang/<%= lang %>"><%= lang %></a>
+        <% }) %>
+      </ul>
+    </header>
+    <h1><%= __('Wellcome to') %></h1>
+    <h2><%= title %></h2>
     <ul>
         <% commercial.forEach(function(commercial) { %>
         <div class="item">

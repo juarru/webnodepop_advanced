@@ -1,3 +1,5 @@
+"use strict";
+
 let express = require('express');
 let router = express.Router();
 let commercials = require('./../models/Commercial');
@@ -35,6 +37,14 @@ router.get('/api/v1/commercials', (req, res, next) => {
         });
 
     });
+});
+
+// Languaje routing
+router.get('/lang/:locale', (req,res, next) => {
+    const locale = req.params.locale;
+    const referer = req.get('referer');
+    res.cookie('nodeapi-lang', locale, { maxAge: 90000000, httpOnly: true });
+    res.redirect(referer);
 });
 
 

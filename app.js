@@ -6,6 +6,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var i18n = require('i18n');
 
 //var routes = require('./routes/index');
 //var users = require('./routes/users');
@@ -31,11 +32,24 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public/images')));
 
-// Detecting languaje in header with x-lang
-app.use((req, res, next) => {
-  req.lang = req.get('x-lang') || 'en';
-  next();
+// Setting i18n
+i18n.configure({
+    directory: path.join(__dirname, 'locales'),
+    defaultLocale: 'en',
+    syncFiles: true,
+    queryParameter: 'lang',
+    register: global,
+    cookie: 'nodeapi-lang',
 });
+i18n.setLocale('en');
+app.use(i18n.init);
+
+
+// Detecting languaje in header with x-lang
+// app.use((req, res, next) => {
+//   req.lang = req.get('x-lang') || 'en';
+//   next();
+// });
 
 //app.use('/', routes);
 //app.use('/users', users);
