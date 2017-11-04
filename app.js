@@ -7,6 +7,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var i18n = require('i18n');
+var jwt = require('jsonwebtoken');
 
 //var routes = require('./routes/index');
 //var users = require('./routes/users');
@@ -18,6 +19,7 @@ require('./lib/mongooseConn');
 
 // Loading Models
 require('./models/Commercial');
+require('./models/Users');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,7 +27,10 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+
+if (process.env.LOG_FORMAT !== 'nolog'){
+    app.use(logger(process.env.LOG_FORMAT || 'dev'));
+}
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -46,13 +51,17 @@ app.use(i18n.init);
 
 
 // Detecting languaje in header with x-lang
-// app.use((req, res, next) => {
-//   req.lang = req.get('x-lang') || 'en';
-//   next();
-// });
+app.use((req, res, next) => {
+  req.lang = req.get('x-lang') || 'en';
+  next();
+});
 
 //app.use('/', routes);
 //app.use('/users', users);
+
+// losgin controller
+const loginController = require('./routes/api/v1/loginController');
+app.post('/api/v1/login', loginController.post);
 
 // Index route
 app.use('/', require('./routes/index'));

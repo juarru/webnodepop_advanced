@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+<% include header %>
     <header>
-      <ul class="lang-switch">
-        <% getLocales().forEach( lang => { %>
-        <a href="/lang/<%= lang %>"><%= lang %></a>
-        <% }) %>
-      </ul>
+      <div>
+        <ul class="lang-switch">
+            <% getLocales().forEach( lang => { %>
+          <a href="/lang/<%= lang %>"><%= lang %></a>
+            <% }) %>
+        </ul>
+      </div>
+
     </header>
     <h1><%= __('Wellcome to') %></h1>
     <h2><%= title %></h2>
@@ -26,5 +23,4 @@
         </div>
         <% }); %>
     </ul>
-  </body>
-</html>
+<% include footer %>
