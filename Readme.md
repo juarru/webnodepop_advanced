@@ -184,6 +184,8 @@ If is not, the response will be like this:
 
 ### Selecting Commercials
 
+**Note:** Is neccesary to send an authenticated token.
+
 For selecting commercial please use a `GET` request to this route:
 
 `http://server_ip:3000/api/v1/commercials?`
