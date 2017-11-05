@@ -106,6 +106,34 @@ $ npm run debug
 
 WebNodepop supports english and spanish languaje. You must pass a `x-lang` parameter with `en` or `es` value to receive messages in the desired languaje. Option `en` is set as default.
 
+## API - Users
+
+### Users Authentication
+<a name=authentication> </a>
+For authenticate existing users, you must send a `POST` request using the route:
+
+`http://server_ip:3000/authenticate`
+
+You only have to pass the `email` and `key` fields.
+
+If the operation is done, you will receive a success response with a token:
+
+```js
+{
+  "success": true,
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU3MmNkMDQ5NTc3MjM4NzEzMjllZGRmNyIsImlhdCI6MTQ2MjU1NTk1MiwiZXhwIjoxNDYyNzI4NzUyfQ.EclGk2iIvTNUMUsgU1pyWmwk9q0rmAV81Lc--PrcpQ4"
+}
+```
+
+If some problem happens, you will receive a json response:
+
+```js
+{
+  "success": false,
+  "error": "Authentication failed. Invalid password"
+}
+```
+
 ## API - Commercials
 
 ### Adding Commercials
@@ -160,7 +188,7 @@ For selecting commercial please use a `GET` request to this route:
 
 `http://server_ip:3000/api/v1/commercials?`
 
-followed by the parameters you want to filter
+followed by the parameters you want to filter, and add a **Header** `'x-access-token'` with the returned token in authentication route
 
 *1- Tags:*
 
