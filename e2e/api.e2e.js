@@ -32,6 +32,7 @@ describe('API Tests', function () {
     it('should return JSON of commercials', function (done) {
         request(app)
             .get(uri)
+            .send({ email: 'user@example.com', key: '1234'})
             .expect(200, done);
     })
 
@@ -76,9 +77,10 @@ describe('API Tests', function () {
     });
 
     it('should return TOKEN when correct email - key', function(done) {
-        const url = '/api/v1/authenticate?email=user%40example.com&key=1234';
+        const url = '/authenticate';
         request(app)
             .post(url)
+            .send({ email: 'user@example.com', key: '1234'})
             .expect(200, done)
     });
 });

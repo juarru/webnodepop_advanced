@@ -4,6 +4,7 @@ let express = require('express');
 let router = express.Router();
 let commercials = require('./../models/Commercial');
 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
 

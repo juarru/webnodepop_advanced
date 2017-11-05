@@ -61,7 +61,7 @@ app.use((req, res, next) => {
 app.use('/api/v1/commercials', jwtCheck(), require('./routes/api/v1/commercials'));
 
 // Index route
-app.use('/', require('./routes/index'));
+app.use('/', jwtCheck(), require('./routes/index'));
 
 // Controllers
 const loginController = require('./routes/loginController');

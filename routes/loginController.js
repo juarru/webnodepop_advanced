@@ -11,9 +11,6 @@ class LoginController {
     const errors = require('../lib/errorHandler');
     const hashedPassword = Usuario.hashedPassword(password);
 
-    console.log(email);
-    console.log(hashedPassword);
-
     const user = await Usuario.findOne({ email: email, key: hashedPassword });
 
     // Controlling email field
