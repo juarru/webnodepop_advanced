@@ -102,6 +102,13 @@ In that case is possible you want to use a debugging mode to analize more in dep
 $ npm run debug
 ```
 
+## Testing Webnodepop  
+You can run several test by executing:
+
+```bash
+$ npm run e2e
+```
+
 ## API - Languajes
 
 WebNodepop supports english and spanish languaje. You must pass a `x-lang` parameter with `en` or `es` value to receive messages in the desired languaje. Option `en` is set as default.
