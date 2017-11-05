@@ -70,6 +70,15 @@ Perhaps you want to test the project using some previous data. Perfect!!!, you c
 $ npm run installDB
 ```
 
+You have now one user and some commercials in the database ready to use.
+The users information are:
+
+name | email | key
+-----|-------|-----
+User | user@example.com | 1234 
+
+You can use them later for [authentication](#authentication) testing, the same as commercials, that you will get using the API.
+
 Now you can start WebNodepop service:
 
 ```bash
