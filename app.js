@@ -57,17 +57,15 @@ app.use((req, res, next) => {
   next();
 });
 
-//app.use('/', routes);
-//app.use('/users', users);
+// Loading API Routes
+app.use('/api/v1/commercials', jwtCheck(), require('./routes/api/v1/commercials'));
 
 // Index route
 app.use('/', require('./routes/index'));
 
-// Loading API routes
-//app.use('/users', require('./routes/users'));
-app.use('/api/v1/authenticate', require('./routes/api/v1/authenticate'));
-app.use('/api/v1/commercials', jwtCheck(), require('./routes/api/v1/commercials'));
-
+// Controllers
+const loginController = require('./routes/loginController');
+app.post('/authenticate', loginController.authJWT);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
