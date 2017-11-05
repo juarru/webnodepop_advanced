@@ -8,6 +8,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var i18n = require('i18n');
 const jwtCheck = require('./lib/jwtCheck');
+require('dotenv').config();
 
 //var routes = require('./routes/index');
 //var users = require('./routes/users');
